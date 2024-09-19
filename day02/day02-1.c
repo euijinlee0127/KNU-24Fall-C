@@ -1,33 +1,40 @@
 #include <stdio.h>
+
 int main(void) {
-	int op;
-	printf("���ϴ� ����� �Է��Ͻÿ�.");
-		scanf_s("%d", &op);
+    int operation;
+    double num1, num2, result;
 
-		double num1, num2;
-		printf("ù��° ����: ");
-		scanf_s("lf", &num1);
-			printf("�ι�° ����: ");
-			scansf_s("lf", &num2);
+    printf("연산 기호 입력 (덧셈:1, 뺄셈:2, 곱셈:3, 나눗셈:4): ");
+    scanf_s("%d", &operation);
 
-			double result = 0.;
-			if (op == 1) {
-				result = num1 + num2;
-			}
+    printf("숫자 두 개 입력: ");
+    scanf_s("%lf %lf", &num1, &num2);
 
-			else if (op == 2) {
-				result = num1 - num2;
-			}
+    if (operation == 1) {
+        result = num1 + num2;
+        printf("정답: %.2lf\n", result);
+    }
+    else if (operation == 2) {
+        result = num1 - num2;
+        printf("정답: %.2lf\n", result);
+    }
+    else if (operation == 3) {
+        result = num1 * num2;
+        printf("정답: %.2lf\n", result);
+    }
+    else if (operation == 4) {
+        if (num2 != 0) {
+            result = num1 / num2;
+            printf("정답: %.2lf\n", result);
+        }
+        else {
+            printf("오류: 0으로 나눌 수 없습니다.\n");
+        }
+    }
+    else {
+        printf("오류: 잘못된 연산 기호입니다.\n");
+    }
 
-			else if (op == 3) {
-				result = num1 * num2;
-			}
-
-			else if (op == 4) {
-				result = num1 / num2;
-			}
-
-			printf("%lf", result);
-
-			return 0;
+    return 0;
 }
+
